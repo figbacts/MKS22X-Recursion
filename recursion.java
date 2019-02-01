@@ -1,3 +1,4 @@
+import java.util.*;
 public class recursion{
   public static void main(String[] args){
     System.out.println("Testing sqrt: sqrt(100) " + sqrt(100));
@@ -6,6 +7,7 @@ public class recursion{
     System.out.println("Testing fib: fib(0) " + fib(0));
     System.out.println("Testing fib: fib(5) " + fib(5));
     System.out.println("Testing fib: fib(7) " + fib(7));
+    System.out.println("Testing makeAllSums: makeAllSums(3) " + makeAllSums(3));
 
   }
   public static double sqrt(double n){
@@ -34,5 +36,22 @@ public class recursion{
       return fibH(n - 1, prev, prevprev + prev);
     }
   }
+
+  public static ArrayList<Integer> makeAllSums(int n){
+      ArrayList<Integer> aryans = new ArrayList<Integer>();
+      makeAllSumsH(aryans, n, 0);
+      return aryans;
+    }
+
+  private static void makeAllSumsH(ArrayList<Integer> aryans, int n, int ans){
+    System.out.println("(" + n + "," + ans + ")");
+    if (n == 0){
+      aryans.add(ans);
+    }
+    else{
+    makeAllSumsH(aryans, n - 1, ans += n);
+    makeAllSumsH(aryans, n - 1, ans -= n);
+  }
+}
 
 }
