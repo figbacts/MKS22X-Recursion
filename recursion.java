@@ -10,15 +10,12 @@ public class recursion{
     System.out.println("Testing makeAllSums: makeAllSums(3) " + makeAllSums(3));
 
   }
-  public static double sqrt(double n){
-    return sqrtH(n,1);
-  }
-  private static double sqrtH(double n, double guess){
-    if (n * 1.00001 < guess * guess || n * 0.99999 > guess * guess){
-      return sqrtH(n,(n/guess + guess)/2 );
+  public static double sqrtH(double n, double tolerance){
+    if (n * 1.00001 < tolerance * tolerance || n * 0.99999 > tolerance * tolerance){
+      return sqrtH(n,(n/tolerance + tolerance)/2 );
     }
     else{
-      return guess;
+      return tolerance;
     }
   }
 
